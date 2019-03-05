@@ -1,0 +1,13 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>DbConCheck</title>
+    </head>
+    <body>
+        <table>
+            <tr th:each="user : ${userLst}" th:object="${user}">
+                <td th:text="*{userid}"></td>
+                <td th:text="*{username}"></td>
+            </tr>
+        </table>
+    </body>
+</html>

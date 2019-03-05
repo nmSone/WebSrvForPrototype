@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+  <classPathEntry location="C:/Users/masato/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar"/>
+  <context id="context1">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.78.134:3306/wktmdb?useSSL=false" userId="wktm00" password="okinawa" />
+    <javaModelGenerator targetPackage="com.prototype.entity" targetProject="C:\Users\masato\Documents\workspace\WebSrvForPrototype\src\main\java" />
+    <sqlMapGenerator targetPackage="mapper" targetProject="C:\Users\masato\Documents\workspace\WebSrvForPrototype\src\main\resources" />
+    <javaClientGenerator targetPackage="com.prototype.mapper" targetProject="C:\Users\masato\Documents\workspace\WebSrvForPrototype\src\main\java" type="XMLMAPPER" />
+    <table schema="wktmdb"
+           tableName="%"
+           enableInsert="true"
+               enableSelectByPrimaryKey="true"
+               enableSelectByExample="false"
+               enableUpdateByPrimaryKey="true"
+               enableUpdateByExample="false"
+               enableDeleteByPrimaryKey="true"
+               enableDeleteByExample="false"
+               enableCountByExample="false"
+               selectByExampleQueryId="false"
+               modelType="flat">
+    </table>
+  </context>
+</generatorConfiguration>

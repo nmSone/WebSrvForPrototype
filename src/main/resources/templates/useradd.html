@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>DbConCheck</title>
+    </head>
+    <body>
+	    <form id="userInfoForm" method="post" action="/user/insert" th:action="@{/user/insert}" th:object="${UserInfoForm}">
+	    	<table>
+	    		<tr>
+	    			<td style="width: 80px">ユーザID：</td>
+	    			<td style="width: 250px">
+	    				<input type="text" name="userId" id="userId" th:field="*{userid}"/>
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td style="width: 80px">ユーザ名：</td>
+	    			<td style="width: 250px">
+	    				<input type="text" name="userName" id="userName" th:field="*{username}"/>
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td style="width: 80px">ユーザパスワード：</td>
+	    			<td style="width: 250px">
+	    				<input type="text" name="userPw" id="userPw" th:field="*{userpswd}"/>
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td style="width: 80px">ユーザ種別：</td>
+	    			<td style="width: 250px">
+	    				<input type="text" name="userCls" id="userCls" th:field="*{userclass}"/>
+	    			</td>
+	    		</tr>
+	    	</table>
+	    	<button type="submit">Insert</button>
+	    </form>
+    </body>
+</html>

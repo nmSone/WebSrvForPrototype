@@ -21,8 +21,7 @@ public class UserInfoController {
 
 	@RequestMapping("/user")
 	public String user(Model model) {
-		model.addAttribute("userLst", userMapper.selectAll());
-		return "userinfo";
+		return "usermain";
 	}
 
 	@RequestMapping("/user/add")
@@ -34,9 +33,6 @@ public class UserInfoController {
 
 	@RequestMapping("/user/insert")
 	public String insert(UserInfoForm userForm, BindingResult bindingResult, Model model) {
-		userService.UserInsert(userForm);
-		model.addAttribute("userLst", userMapper.selectAll());
-		return "userinfo";
+		return "usermain";
 	}
-
 }

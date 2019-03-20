@@ -29,4 +29,22 @@ public class UserInfoService {
 		userMapper.insert(insRec);
 	}
 
+	@Transactional
+	public void UserDelete(UserInfoForm userForm) {
+		userMapper.deleteByPrimaryKey(userForm.getUserid());
+	}
+
+	@Transactional
+	public void UserUpdate(UserInfoForm userForm) {
+		Msuser insRec = new Msuser();
+		insRec.setUserid(userForm.getUserid());
+		insRec.setUsername(userForm.getUsername());
+		insRec.setUserpswd(userForm.getUserpswd());
+		insRec.setUserclass(userForm.getUserclass());
+		insRec.setInsertdate(new Date());
+		insRec.setInsertuserid("0000");
+		insRec.setInsertusername("test");
+		insRec.setRev(0);
+		userMapper.updateByPrimaryKey(insRec);
+	}
 }

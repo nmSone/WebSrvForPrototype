@@ -8,6 +8,8 @@ public class UserInfoForm {
     private String username;
     private String userpswd;
     private String userclass;
+    private String modurl;
+    private String rmurl;
 	public String getUserid() {
 		return userid;
 	}
@@ -31,6 +33,18 @@ public class UserInfoForm {
 	}
 	public void setUserclass(String userclass) {
 		this.userclass = userclass;
+	}
+	public String getModurl() {
+		return modurl;
+	}
+	public void setModurl(String modurl) {
+		this.modurl = modurl;
+	}
+	public String getRmurl() {
+		return rmurl;
+	}
+	public void setRmurl(String rmurl) {
+		this.rmurl = rmurl;
 	}
 
 }

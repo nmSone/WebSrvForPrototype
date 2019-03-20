@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>DbConCheck</title>
+    </head>
+    <body>
+	    <div th:text="|ユーザ「  ${UserInfoForm.username} 」を削除します。|"></div>
+	    <form id="userInfoForm" method="post" action="/user/delete" th:action="@{/user/delete}" th:object="${UserInfoForm}">
+	    		<input type="hidden" name="userId" id="userId" th:field="*{userid}"/>
+	    		<button type="submit">削除</button>
+		</form>
+	</body>
+</html>

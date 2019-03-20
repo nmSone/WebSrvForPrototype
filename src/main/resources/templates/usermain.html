@@ -3,60 +3,63 @@
 <head>
 <title>ユーザ一覧</title>
 <meta name="description" content="ユーザ一覧">
-<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" />
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
-<script type="text/javascript" th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
 <link rel="stylesheet" th:href="@{/webjars/datatables/1.10.19/css/jquery.dataTables.min.css}"/>
-<link rel="stylesheet" th:href="@{/webjars/datatables/1.10.19/css/dataTables.bootstrap4.min.css}"/>
 <script type="text/javascript" th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
 <script type="text/javascript" th:src="@{/webjars/datatables/1.10.19/js/jquery.dataTables.min.js}"></script>
-<script type="text/javascript" th:src="@{/webjars/datatables/1.10.19/js/dataTables.bootstrap4.min.js}"></script>
 <script th:inline="javascript">
-/*<![CDATA[*/
-    var modalesectiondata = null;
     $(function(){
-        // datatableの設定を変更
         var modalesectiontable = $("#userTbl").DataTable({
             "bPaginate": true,
             "bLengthChange": false,
             "bFilter": true,
-            "bSort": false,
+            "bSort": true,
             "bInfo": false,
             "bAutoWidth": false,
-            "language": {
-                "url": /*[[@{/DataTables-1.10.16/Japanese.json}]]*/ 'Japanese.json'
-            },
             "ajax": { url: 'http://localhost:8080/user/allusers', dataSrc: '' },
             "columns": [
                 { data: "userid" },
                 { data: "username" },
                 { data: "userpswd" },
                 { data: "userclass" },
+                {
+                	data: "userid",
+                	render: function(data, type, row) {
+                		var result = "";
+                		if (type === "display") {
+                			result = '<a href="http://localhost:8080/user/mod?userid=' + data + '">更新</a> | <a href="http://localhost:8080/user/del?userid=' + data + '">削除</a>';
+                		}
+            			return result;
+                	}
+                },
             ],
             "columnDefs": [
                 { targets: 0, width: 30 },
-                { targets: 1, width: 90 },
+                { targets: 1, width: 120 },
+                { targets: 1, width: 80 },
                 { targets: 1, width: 50 },
-                { targets: 1, width: 20 },
-                {targets:'_all',className : 'dt-head-center'},
+                { targets: 1, width: 200 },
+                { targets:'_all',className : 'dt-head-center'},
             ]
         });
     })
-/*]]>*/
 </script>
 </head>
 <body>
-    <table id="userTbl" class="table table-bordered table-hover table-lg">
-        <thead class="thead-light">
+	<label style="font-size: 15pt">登録ユーザ一覧</label>
+    <table id="userTbl" style="width: 450px;">
+        <thead>
             <tr>
                 <th>ID</th>
-                <th>ユーザ名</th>
-                <th>パスワード</th>
-                <th>クラス</th>
+                <th>NAME</th>
+                <th>PW</th>
+                <th>CLS</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
+    <a href="http://localhost:8080/user/add">新規ユーザ追加</a>
 </body>
 </html>
